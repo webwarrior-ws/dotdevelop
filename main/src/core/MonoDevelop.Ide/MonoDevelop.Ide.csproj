@@ -5370,6 +5370,7 @@
     <Compile Include="MonoDevelop.Ide.Composition\PlatformExtensions.cs" />
     <Compile Include="MonoDevelop.Ide.Composition\RoslynWaitIndicator.cs" />
     <Compile Include="MonoDevelop.Ide.Composition\SuggestedActionCategoryRegistryService.cs" />
+    <Compile Include="MonoDevelop.Ide.Editor.Highlighting\RoslynClassificationHighlighting.cs" />
     <Compile Include="MonoDevelop.Ide.Editor\ITextEditorFactoryService.cs" />
     <Compile Include="MonoDevelop.Ide.TypeSystem\DynamicFileManager.cs" />
     <Compile Include="MonoDevelop.Ide.TypeSystem\IDynamicDocumentInfoProvider.cs" />
@@ -6462,6 +6463,7 @@
     <Compile Include="MonoDevelop.Ide.RoslynServices\MonoDevelopTaskSchedulerFactory.cs" />
     <Compile Include="MonoDevelop.Ide.Editor.Highlighting\IEditorThemeProvider.cs" />
     <Compile Include="MonoDevelop.Ide.Editor.Highlighting\ISyntaxHighlightingDefinitionProvider.cs" />
+    <Compile Include="MonoDevelop.Ide.Editor.Highlighting\RoslynClassificationHighlighting.cs" />
     <Compile Include="MonoDevelop.Ide\PlatformMemoryStatusEventArgs.cs" />
     <Compile Include="MonoDevelop.Ide.Desktop\MemoryMonitor.cs" />
     <Compile Include="MonoDevelop.Ide.RoslynServices\MonoDevelopErrorReportingService.cs" />
