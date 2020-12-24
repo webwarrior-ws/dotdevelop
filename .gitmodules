@@ -51,4 +51,4 @@
 [submodule "main/external/vs-editor-api"]
 	path = main/external/vs-editor-api
 	url = https://github.com/dotdevelop/vs-editor-api.git
-	branch = dotdevelop
+    branch = dotdevelop_oe_8.1.5
