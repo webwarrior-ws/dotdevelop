@@ -2,7 +2,7 @@
 
 This is an effort to get monodevelop open sourced again.
 
-**DotDevelop** will hopefully a full-featured integrated development environment (IDE) for .dotnet using Gtk#.
+**DotDevelop** will hopefully a full-featured integrated development environment (IDE) for .dotnet using Gtk.
 
 **Current Status**
 
