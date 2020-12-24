@@ -182,6 +182,7 @@
     <Compile Include="Mono.TextEditor.Theatrics\SingleActorStage.cs" />
     <Compile Include="Mono.TextEditor.Theatrics\SmartScrolledWindow.cs" />
     <Compile Include="Mono.TextEditor.Theatrics\Stage.cs" />
+    <Compile Include="VSEditor\TextEditorFactoryService.cs" />
     <Compile Include="VSEditor\TextEditorInitializationService.cs" />
     <Compile Include="MonoDevelop.SourceEditor\TextMarker\LineSeparatorMarker.cs" />
     <Compile Include="MonoDevelop.SourceEditor.QuickTasks\QuickTaskOverviewMode.IndicatorDrawingCache.cs" />
