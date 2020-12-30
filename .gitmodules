@@ -52,3 +52,11 @@
 	path = main/external/vs-editor-api
 	url = https://github.com/dotdevelop/vs-editor-api.git
     branch = dotdevelop_oe_8.1.5
+[submodule "main/external/Monodevelop.Netcoredbg"]
+	path = main/external/Monodevelop.Netcoredbg
+	url = git://github.com/dotdevelop/monodevelop.netcoredbg.git
+	branch = dotdevelop
+[submodule "main/external/Samsung.Netcoredbg"]
+	path = main/external/Samsung.Netcoredbg
+	url = git://github.com/dotdevelop/netcoredbg.git
+	branch = dotdevelop
