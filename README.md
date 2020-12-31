@@ -29,7 +29,7 @@ make
 
 have a look here: http://source.monodevelop.com/
 
-# (outdatet) ReadMe from MonoDevelop:
+# (outdated) ReadMe from MonoDevelop:
 
 Directory organization
 ----------------------
