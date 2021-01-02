@@ -100,7 +100,7 @@
       <Project>{92494904-35FA-4DC9-BDE9-3A3E87AC49D3}</Project>
       <Name>Xwt</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\external\xwt\Xwt.Gtk2\Xwt.Gtk2.csproj">
+    <ProjectReference Include="..\..\..\external\xwt\Xwt.GtkSharp\Xwt.GtkSharp.csproj">
       <Project>{C3887A93-B2BD-4097-8E2F-3A063EFF32FD}</Project>
       <Name>Xwt.Gtk2</Name>
     </ProjectReference>
@@ -114,8 +114,8 @@
       <Name>Mono.Addins.Setup</Name>
       <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\external\mono-addins\Mono.Addins.Gui\Mono.Addins.Gui.csproj">
-      <Project>{FEC19BDA-4904-4005-8C09-68E82E8BEF6A}</Project>
+    <ProjectReference Include="..\..\..\external\mono-addins\Mono.Addins.GuiGtk3\Mono.Addins.GuiGtk3.csproj">
+      <Project>{410A7DC9-E7DA-43E6-B592-93E2A344B660}</Project>
       <Name>Mono.Addins.Gui</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\external\debugger-libs\Mono.Debugging\Mono.Debugging.csproj">

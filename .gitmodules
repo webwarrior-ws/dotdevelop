@@ -26,7 +26,7 @@
 [submodule "main/external/mono-addins"]
 	path = main/external/mono-addins
 	url = git://github.com/dotdevelop/mono-addins.git
-	branch = master
+	branch = dotdevelop_gtksharp
 [submodule "main/external/mono-tools"]
 	path = main/external/mono-tools
 	url = git://github.com/dotdevelop/mono-tools.git
