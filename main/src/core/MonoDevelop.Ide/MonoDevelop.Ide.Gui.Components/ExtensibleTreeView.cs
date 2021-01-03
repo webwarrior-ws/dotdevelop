@@ -42,6 +42,9 @@ using MonoDevelop.Ide.Commands;
 using MonoDevelop.Ide.Extensions;
 using MonoDevelop.Ide.Gui.Pads;
 using MonoDevelop.Projects.Extensions;
+#if GTK3
+using TreeModel = Gtk.ITreeModel;
+#endif
 
 namespace MonoDevelop.Ide.Gui.Components
 {
@@ -303,7 +306,7 @@ namespace MonoDevelop.Ide.Gui.Components
 		}
 #endif
 
-		static void SetIconCellData (Gtk.TreeViewColumn col, Gtk.CellRenderer renderer, Gtk.TreeModel model, Gtk.TreeIter it)
+		static void SetIconCellData (Gtk.TreeViewColumn col, Gtk.CellRenderer renderer, TreeModel model, Gtk.TreeIter it)
 		{
 			if (model == null)
 				return;
@@ -321,7 +324,7 @@ namespace MonoDevelop.Ide.Gui.Components
 			cell.OverlayTopRight = info.OverlayTopRight;
 		}
 
-		static void SetTextCellData (Gtk.TreeViewColumn col, Gtk.CellRenderer renderer, Gtk.TreeModel model, Gtk.TreeIter it)
+		static void SetTextCellData (Gtk.TreeViewColumn col, Gtk.CellRenderer renderer, TreeModel model, Gtk.TreeIter it)
 		{
 			if (model == null)
 				return;
@@ -1292,7 +1295,7 @@ namespace MonoDevelop.Ide.Gui.Components
 			var node = (TreeNodeNavigator)GetSelectedNode ();
 			info.Enabled = TryHandlePaste (node, copyObjects, currentTransferOperation, true, false);
 			// if the current node can't handle the data, see if the parent can
-			if (!info.Enabled && node.MoveToParent ()) 
+			if (!info.Enabled && node.MoveToParent ())
 				info.Enabled = TryHandlePaste (node, copyObjects, currentTransferOperation, true, true);
 		}
 
@@ -1595,7 +1598,7 @@ namespace MonoDevelop.Ide.Gui.Components
 			return null;
 		}
 
-		internal int CompareNodes (Gtk.TreeModel model, Gtk.TreeIter a, Gtk.TreeIter b)
+		internal int CompareNodes (TreeModel model, Gtk.TreeIter a, Gtk.TreeIter b)
 		{
 			sorting = true;
 			try {
@@ -2064,7 +2067,7 @@ namespace MonoDevelop.Ide.Gui.Components
 		void OnKeyPress (object o, Gtk.KeyPressEventArgs args)
 		{
 			HideStatusMessage ();
-			
+
 			if (args.Event.Key == Gdk.Key.Delete || args.Event.Key == Gdk.Key.KP_Delete) {
 				DeleteCurrentItem ();
 				args.RetVal = true;

@@ -35,7 +35,6 @@ using Gtk;
 using MonoDevelop.Core;
 using MonoDevelop.Ide.Editor.Highlighting;
 using System.Text.RegularExpressions;
-using Microsoft.VisualStudio.Text.Editor.Commanding.Commands;
 
 #if MAC
 using AppKit;
