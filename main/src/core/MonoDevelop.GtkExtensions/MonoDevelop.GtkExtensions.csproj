@@ -2,12 +2,12 @@
   <Import Project="$(RootDirectory)\MonoDevelop.props" />
   <Import Project="$(ReferencesGtk)" />
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>$(MDTargetFramework)</TargetFramework>
     <ProjectGuid>{288994D1-C7E1-4740-99AB-A52B572EBA8A}</ProjectGuid>
     <OutputPath>$(RootDirectory)\build\bin</OutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <RootNamespace>MonoDevelop.GtkWorkarounds</RootNamespace>
-    
+
   </PropertyGroup>
 </Project>
 

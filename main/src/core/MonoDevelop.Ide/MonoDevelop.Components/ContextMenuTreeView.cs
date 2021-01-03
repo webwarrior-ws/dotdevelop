@@ -27,6 +27,8 @@ using System;
 using MonoDevelop.Components.AtkCocoaHelper;
 #if GTK3
 using TreeModel = Gtk.ITreeModel;
+#else
+using TreeModel = Gtk.TreeModel;
 #endif
 
 namespace MonoDevelop.Components

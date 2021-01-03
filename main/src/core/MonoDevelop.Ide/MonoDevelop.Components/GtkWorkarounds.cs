@@ -1519,6 +1519,8 @@ namespace MonoDevelop.Components
 		}
 #endif
 
+		public static int GtkMinorVersion => Xwt.GtkBackend.GtkWorkarounds.GtkMinorVersion;
+
 	}
 
 	public readonly struct KeyboardShortcut : IEquatable<KeyboardShortcut>

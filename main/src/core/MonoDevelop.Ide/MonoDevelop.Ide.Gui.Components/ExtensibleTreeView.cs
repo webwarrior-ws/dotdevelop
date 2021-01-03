@@ -44,6 +44,8 @@ using MonoDevelop.Ide.Gui.Pads;
 using MonoDevelop.Projects.Extensions;
 #if GTK3
 using TreeModel = Gtk.ITreeModel;
+#else
+using TreeModel = Gtk.TreeModel;
 #endif
 
 namespace MonoDevelop.Ide.Gui.Components

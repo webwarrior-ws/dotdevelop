@@ -5,6 +5,8 @@ using Gtk;
 namespace Gtk
 {
 
+#if GTK3
+
 	public static class GtkSharpWorkarounds
 	{
 
@@ -80,5 +82,7 @@ namespace Gtk
 		}
 
 	}
+
+#endif
 
 }
