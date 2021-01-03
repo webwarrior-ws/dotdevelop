@@ -154,6 +154,8 @@
     <EmbeddedResource Include="icons\**\*.png" LinkBase="icons"/>
     <EmbeddedResource Include="MonoDevelop.Components.Docking\icons\**\*.png" LinkBase="MonoDevelop.Components.Docking\icons"/>
     <EmbeddedResource Include="MonoDevelop.Components.MainToolbar\assets\**\*.png" LinkBase="MonoDevelop.Components.MainToolbar\assets"/>
+    <EmbeddedResource Include="MonoDevelop.Components.MainToolbar\icons\**\*.png" LinkBase="MonoDevelop.Components.MainToolbar\icons"/>
+
     <EmbeddedResource Include="templates\images\**\*.png" LinkBase="templates\images"/>
     <EmbeddedResource Include="MonoDevelop.Ide.WelcomePage\icons\**\*.png" LinkBase="MonoDevelop.Ide.WelcomePage\icons\"/>
     <EmbeddedResource Include="resources\**\*.png" LinkBase="resources"/>
