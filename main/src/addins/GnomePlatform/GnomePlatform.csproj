@@ -1,22 +1,32 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="$(RootDirectory)\MonoDevelop.props" />
-  <Import Project="$(ReferencesGtk)" />
+  <Import Project="$(RootDirectory)\MonoDevelop.props"/>
+  <Import Project="$(ReferencesGtk)"/>
   <PropertyGroup>
     <ProjectGuid>{AE84B4A7-E6B1-4565-8904-16284DCE41B6}</ProjectGuid>
     <TargetFrameworkVersion>$(MDFrameworkVersion)</TargetFrameworkVersion>
     <OutputPath>..\..\..\build\bin</OutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\core\MonoDevelop.Core\MonoDevelop.Core.csproj" />
-    <ProjectReference Include="..\..\core\MonoDevelop.Ide\MonoDevelop.Ide.csproj" />
-    <ProjectReference Include="..\..\..\external\xwt\Xwt\Xwt.csproj" />
-    <ProjectReference Include="..\..\..\external\mono-addins\Mono.Addins\Mono.Addins.csproj" />
+    <ProjectReference Include="..\..\core\MonoDevelop.Core\MonoDevelop.Core.csproj"/>
+    <ProjectReference Include="..\..\core\MonoDevelop.Ide\MonoDevelop.Ide.csproj"/>
+    <ProjectReference Include="..\..\..\external\xwt\Xwt\Xwt.csproj"/>
+    <ProjectReference Include="..\..\..\external\mono-addins\Mono.Addins\Mono.Addins.csproj"/>
   </ItemGroup>
-  <ItemGroup>
-    <Compile Remove="GioGtk2.cs" Condition="$(HaveGtkSharp)" />
-    <Compile Remove="GioGtkSharp.cs" Condition="!$(HaveGtkSharp)" />
+  <ItemGroup Condition="$(HaveGtkSharp)">
+    <Compile Remove="GioGtk2.cs"/>
+    <None Include="GnomePlatform.dll.config">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
+  <ItemGroup Condition="!$(HaveGtkSharp)">
+    <Compile Remove="GioGtkSharp.cs"/>
+    <None Include="GnomePlatform.dll.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
