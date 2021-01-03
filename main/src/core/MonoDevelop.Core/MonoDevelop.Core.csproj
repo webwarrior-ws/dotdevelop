@@ -89,7 +89,8 @@
     <PackageReference Include="Microsoft.CodeAnalysis.EditorFeatures" Version="$(NuGetVersionRoslyn)" PrivateAssets="runtime" />
     <PackageReference Include="Microsoft.CodeAnalysis.Workspaces.MSBuild" Version="$(NuGetVersionRoslyn)" PrivateAssets="runtime" />
     <PackageReference Include="Microsoft.VisualStudio.CodingConventions" Version="1.1.20191022.5" PrivateAssets="runtime" />
-    <PackageReference Include="Microsoft.VisualStudio.Composition" Version="$(NuGetVersionVSComposition)" ExcludeAssets="all" />
+<!--    <PackageReference Include="Microsoft.VisualStudio.Composition" Version="$(NuGetVersionVSComposition)" ExcludeAssets="all" />-->
+    <PackageReference Include="Microsoft.VisualStudio.Composition" Version="$(NuGetVersionVSComposition)" PrivateAssets="runtime" />
     <!-- Need the net45 version, see https://github.com/mono/mono/issues/12461 -->
     <!-- should be fixed in https://github.com/mono/mono/commit/98bfa5d904da2b49083d464345fc32064b7f9205 -->
 <!--    <Reference Include="$(NuGetPackageRoot)microsoft.visualstudio.composition/$(NuGetVersionVSComposition)/lib/net45/Microsoft.VisualStudio.Composition.dll">-->
