@@ -1,8 +1,11 @@
 // Gio.cs
 //
-// Author:  Mike Kestner  <mkestner@novell.com>
-//
+// Authors:
+// Mike Kestner  <mkestner@novell.com>
 // Copyright (c) 2008 Novell, Inc (http://www.novell.com)
+//
+// Refactoring to GtkSharp:
+// Lytico  (http://www.limada.org)
 //
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the

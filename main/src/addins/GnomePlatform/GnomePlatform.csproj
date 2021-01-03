@@ -6,11 +6,17 @@
     <TargetFrameworkVersion>$(MDFrameworkVersion)</TargetFrameworkVersion>
     <OutputPath>..\..\..\build\bin</OutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\core\MonoDevelop.Core\MonoDevelop.Core.csproj" />
     <ProjectReference Include="..\..\core\MonoDevelop.Ide\MonoDevelop.Ide.csproj" />
     <ProjectReference Include="..\..\..\external\xwt\Xwt\Xwt.csproj" />
     <ProjectReference Include="..\..\..\external\mono-addins\Mono.Addins\Mono.Addins.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="GioGtk2.cs" Condition="$(HaveGtkSharp)" />
+    <Compile Remove="GioGtkSharp.cs" Condition="!$(HaveGtkSharp)" />
   </ItemGroup>
 </Project>
