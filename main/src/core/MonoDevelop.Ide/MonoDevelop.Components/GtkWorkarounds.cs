@@ -1503,6 +1503,7 @@ namespace MonoDevelop.Components
 			return result;
 		}
 
+#if MAC
 		[DllImport ("libgtk-win32-2.0-0.dll", CallingConvention = CallingConvention.Cdecl)]
 		static extern IntPtr gtk_get_current_event ();
 
@@ -1516,6 +1517,8 @@ namespace MonoDevelop.Components
 			if (raw != IntPtr.Zero)
 				gdk_event_free (raw);
 		}
+#endif
+
 	}
 
 	public readonly struct KeyboardShortcut : IEquatable<KeyboardShortcut>
