@@ -16,7 +16,7 @@
 [submodule "main/external/libgit2sharp"]
 	path = main/external/libgit2sharp
 	url = git://github.com/dotdevelop/libgit2sharp.git
-	branch = dotdevelop
+	branch = dotdevelop_tryBuild
 [submodule "main/external/macdoc"]
 	path = main/external/macdoc
 	url = git://github.com/dotdevelop/macdoc
