@@ -284,3 +284,5 @@ main/tests/StressTest/bin
 main/.idea/
 .idea/
 
+.localcache
+
