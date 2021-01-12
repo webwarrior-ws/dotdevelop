@@ -3,7 +3,7 @@
 // Author:  Mike Kestner  <mkestner@novell.com>
 //
 // Copyright (c) 2008 Novell, Inc (http://www.novell.com)
-// 
+//
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
 // "Software"), to deal in the Software without restriction, including
@@ -11,10 +11,10 @@
 // distribute, sublicense, and/or sell copies of the Software, and to
 // permit persons to whom the Software is furnished to do so, subject to
 // the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be
 // included in all copies or substantial portions of the Software.
-// 
+//
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 // EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
 // MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -89,7 +89,7 @@ namespace MonoDevelop.Platform {
 			string id = GLib.Marshaller.Utf8PtrToString (g_app_info_get_id (handle));
 			string name = GLib.Marshaller.Utf8PtrToString (g_app_info_get_name (handle));
 			string executable = GLib.Marshaller.Utf8PtrToString (g_app_info_get_executable (handle));
-			
+
 			if (!string.IsNullOrEmpty (name) && !string.IsNullOrEmpty (executable) && !executable.Contains ("monodevelop "))
 				return new GnomeDesktopApplication (executable, name, defaultApp != null && defaultApp.Id == id);
 			return null;
@@ -108,7 +108,7 @@ namespace MonoDevelop.Platform {
 			return content_type;
 		}
 
-		public static DesktopApplication GetDefaultForType (string mime_type) 
+		public static DesktopApplication GetDefaultForType (string mime_type)
 		{
 			IntPtr content_type = ContentTypeFromMimeType (mime_type);
 			IntPtr ret = g_app_info_get_default_for_type (content_type, false);
@@ -119,7 +119,7 @@ namespace MonoDevelop.Platform {
 		public static System.Collections.Generic.IList<DesktopApplication> GetAllForType (string mime_type)
 		{
 			var def = GetDefaultForType (mime_type);
-			
+
 			IntPtr content_type = ContentTypeFromMimeType (mime_type);
 			IntPtr ret = g_app_info_get_all_for_type (content_type);
 			GLib.Marshaller.Free (content_type);

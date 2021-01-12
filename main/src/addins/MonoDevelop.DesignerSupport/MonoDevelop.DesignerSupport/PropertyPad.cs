@@ -1,5 +1,5 @@
 //
-// PropertyPad.cs: The pad that holds the MD property grid. Can also 
+// PropertyPad.cs: The pad that holds the MD property grid. Can also
 //     hold custom grid widgets.
 //
 // Authors:
@@ -17,10 +17,10 @@
 // distribute, sublicense, and/or sell copies of the Software, and to
 // permit persons to whom the Software is furnished to do so, subject to
 // the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be
 // included in all copies or substantial portions of the Software.
-// 
+//
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 // EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
 // MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -108,7 +108,7 @@ namespace MonoDevelop.DesignerSupport
 #if MAC
 			nativeWidget = new PropertyMacHostWidget ();
 #else
-			nativeWidget = (IPropertyGrid) new pg.PropertyGrid ();
+			nativeWidget = new PropertyXwtHostWidget ();
 #endif
 			nativeWidget.PropertyGridChanged += NativeWidget_PropertyGridChanged;
 		}
@@ -151,6 +151,9 @@ namespace MonoDevelop.DesignerSupport
 			nativeWidget.CommitPendingChanges ();
 	}
 
+	/// <summary>
+	/// The pad that holds the MD property grid. Can also  hold custom grid widgets.
+	/// </summary>
 	public class PropertyPad : PadContent, ICommandDelegator, IPropertyPad
 	{
 		public event EventHandler PropertyGridChanged;
@@ -198,17 +201,17 @@ namespace MonoDevelop.DesignerSupport
 			this.container = container;
 			DesignerSupport.Service.SetPad (this);
 		}
-		
+
 		internal IPadWindow PadWindow {
 			get { return container; }
 		}
-		
+
 #region AbstractPadContent implementations
-		
+
 		public override Control Control {
 			get { return frame; }
 		}
-		
+
 		public override void Dispose()
 		{
 #if MAC
@@ -217,13 +220,13 @@ namespace MonoDevelop.DesignerSupport
 				container.PadContentHidden -= Window_PadContentHidden;
 			}
 #endif
-			
+
 			propertyGridWrapper.PropertyGridChanged -= Grid_Changed;
 			propertyGridWrapper.Dispose ();
 			DesignerSupport.Service.SetPad (null);
 			base.Dispose ();
 		}
-		
+
 #endregion
 
 #region ICommandDelegatorRouter implementation
@@ -315,7 +318,7 @@ namespace MonoDevelop.DesignerSupport
 				widget.Visible = container.ContentVisible;
 			}
 		}
-		
+
 		void ClearToolbar ()
 		{
 			if (container != null) {
@@ -342,11 +345,11 @@ namespace MonoDevelop.DesignerSupport
 		DockItemToolbar tb;
 		List<Gtk.Widget> buttons = new List<Gtk.Widget> ();
 		bool visible = true;
-		
+
 		public DockToolbarProvider ()
 		{
 		}
-		
+
 		public void Attach (DockItemToolbar tb)
 		{
 			if (this.tb == tb)
@@ -360,20 +363,20 @@ namespace MonoDevelop.DesignerSupport
 					tb.Add (b);
 			}
 		}
-		
+
 #region IToolbarProvider implementation
 		public void Insert (Gtk.Widget w, int pos)
 		{
 			if (tb != null)
 				tb.Insert (w, pos);
-			
+
 			if (pos == -1)
 				buttons.Add (w);
 			else
 				buttons.Insert (pos, w);
 		}
-		
-		
+
+
 		public void ShowAll ()
 		{
 			if (tb != null)
@@ -383,15 +386,15 @@ namespace MonoDevelop.DesignerSupport
 					b.Show ();
 			}
 		}
-		
-		
+
+
 		public Gtk.Widget[] Children {
 			get {
 				return buttons.ToArray ();
 			}
 		}
-		
-		
+
+
 		public bool Visible {
 			get {
 				return visible;
@@ -402,7 +405,7 @@ namespace MonoDevelop.DesignerSupport
 					tb.Visible = value;
 			}
 		}
-		
+
 #endregion
 	}
 

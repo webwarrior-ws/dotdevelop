@@ -28,7 +28,11 @@ using MonoDevelop.Core;
 using Mono.Addins.Setup;
 using Gtk;
 using MonoDevelop.Core.ProgressMonitoring;
+#if GTK3
+using Mono.Addins.GuiGtk3;
+#else
 using Mono.Addins.Gui;
+#endif
 using MonoDevelop.Ide.ProgressMonitoring;
 using Mono.Addins;
 using MonoDevelop.Core.Setup;
