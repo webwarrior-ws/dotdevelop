@@ -44,8 +44,6 @@ print_config:
 
 update_submodules:
 	@$(SYNC_SUBMODULES)
-	./fillLocal.sh
-
 
 top_srcdir=.
 include $(top_srcdir)/config.make
