@@ -15,7 +15,7 @@ It was refactored to compile / run again on linux. Other platforms will follow.
 to hack around, get a compiling copy as follows:
 
 ```
-git clone -b dotdevelop_oe_8.6 https://github.com/dotdevelop/dotdevelop.git
+git clone -b main https://github.com/dotdevelop/dotdevelop.git
 
 cd dotdevelop/
 
