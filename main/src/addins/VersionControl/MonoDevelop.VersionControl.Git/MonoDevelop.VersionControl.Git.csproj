@@ -106,8 +106,8 @@
     <EmbeddedResource Include="MonoDevelop.VersionControl.Git.Win32.addin.xml" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="LibGit2Sharp.NativeBinaries" Version="[2.0.305]" PrivateAssets="none" />
-    <PackageReference Include="LibGit2Sharp" Version="0.27.0-preview-g5335a181ca" />
+    <PackageReference Include="LibGit2Sharp.NativeBinaries" Version="[2.0.312]" PrivateAssets="none" />
+    <PackageReference Include="LibGit2Sharp" Version="0.27.0-preview-g3c570beab0" />
     <None Include="GitIgnore.txt">
       <Gettext-ScanForTranslations>False</Gettext-ScanForTranslations>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

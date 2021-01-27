@@ -2,30 +2,30 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>LibGit2Sharp</id>
-    <version>0.27.0-preview-g5335a181ca</version>
+    <version>0.27.0-preview-g3c570beab0</version>
     <authors>LibGit2Sharp contributors</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="file">App_Readme/LICENSE.md</license>
     <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
     <icon>square-logo.png</icon>
-    <projectUrl>https://github.com/libgit2/libgit2sharp/</projectUrl>
+    <projectUrl>https://github.com/dotdevelop/libgit2sharp/</projectUrl>
     <description>LibGit2Sharp brings all the might and speed of libgit2, a native Git implementation, to the managed world of .Net and Mono.</description>
-    <releaseNotes>https://github.com/libgit2/libgit2sharp/blob/5335a181ca/CHANGES.md#libgit2sharp-changes</releaseNotes>
+    <releaseNotes>https://github.com/libgit2/libgit2sharp/blob/3c570beab0/CHANGES.md#libgit2sharp-changes</releaseNotes>
     <copyright>Copyright © LibGit2Sharp contributors</copyright>
     <tags>libgit2 git</tags>
-    <repository type="git" url="https://github.com/dotdevelop/libgit2sharp" commit="5335a181cac2ef4984eac6db119d886884cffa1e" />
+    <repository type="git" url="https://github.com/dotdevelop/libgit2sharp.git" commit="3c570beab08d07ef1ee3169a3e75a7bfe7308249" />
     <dependencies>
       <group targetFramework=".NETFramework4.7.2">
-        <dependency id="LibGit2Sharp.NativeBinaries" version="[2.0.305]" include="All" />
+        <dependency id="LibGit2Sharp.NativeBinaries" version="[2.0.312]" include="All" />
       </group>
       <group targetFramework=".NETFramework4.8">
-        <dependency id="LibGit2Sharp.NativeBinaries" version="[2.0.305]" include="All" />
+        <dependency id="LibGit2Sharp.NativeBinaries" version="[2.0.312]" include="All" />
       </group>
       <group targetFramework=".NETStandard2.0">
-        <dependency id="LibGit2Sharp.NativeBinaries" version="[2.0.305]" include="All" />
+        <dependency id="LibGit2Sharp.NativeBinaries" version="[2.0.312]" include="All" />
       </group>
       <group targetFramework=".NETStandard2.1">
-        <dependency id="LibGit2Sharp.NativeBinaries" version="[2.0.305]" include="All" />
+        <dependency id="LibGit2Sharp.NativeBinaries" version="[2.0.312]" include="All" />
       </group>
     </dependencies>
   </metadata>
