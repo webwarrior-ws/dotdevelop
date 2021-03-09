@@ -107,7 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="LibGit2Sharp.NativeBinaries" Version="[2.0.312]" PrivateAssets="none" />
-    <PackageReference Include="LibGit2Sharp" Version="0.27.0-preview-g3c570beab0" />
+    <PackageReference Include="LibGit2Sharp" Version="0.27.0-preview-gb9e1238e78" />
     <None Include="GitIgnore.txt">
       <Gettext-ScanForTranslations>False</Gettext-ScanForTranslations>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
