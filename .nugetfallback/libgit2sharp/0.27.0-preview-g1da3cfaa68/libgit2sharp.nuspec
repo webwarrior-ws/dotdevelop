@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>LibGit2Sharp</id>
-    <version>0.27.0-preview-gb9e1238e78</version>
+    <version>0.27.0-preview-g1da3cfaa68</version>
     <authors>LibGit2Sharp contributors</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="file">App_Readme/LICENSE.md</license>
@@ -10,21 +10,15 @@
     <icon>square-logo.png</icon>
     <projectUrl>https://github.com/dotdevelop/libgit2sharp/</projectUrl>
     <description>LibGit2Sharp brings all the might and speed of libgit2, a native Git implementation, to the managed world of .Net and Mono.</description>
-    <releaseNotes>https://github.com/libgit2/libgit2sharp/blob/b9e1238e78/CHANGES.md#libgit2sharp-changes</releaseNotes>
+    <releaseNotes>https://github.com/libgit2/libgit2sharp/blob/1da3cfaa68/CHANGES.md#libgit2sharp-changes</releaseNotes>
     <copyright>Copyright © LibGit2Sharp contributors</copyright>
     <tags>libgit2 git</tags>
-    <repository type="git" url="https://github.com/dotdevelop/libgit2sharp" commit="b9e1238e7889680301331847ce0f21a5b9ca93b8" />
+    <repository type="git" url="https://github.com/dotdevelop/libgit2sharp" commit="1da3cfaa688ac5e73bc29d153491aaded6fbda31" />
     <dependencies>
-      <group targetFramework=".NETFramework4.7.2">
-        <dependency id="LibGit2Sharp.NativeBinaries" version="[2.0.312]" include="All" />
-      </group>
-      <group targetFramework=".NETFramework4.8">
+      <group targetFramework=".NETCoreApp2.1">
         <dependency id="LibGit2Sharp.NativeBinaries" version="[2.0.312]" include="All" />
       </group>
       <group targetFramework=".NETStandard2.0">
-        <dependency id="LibGit2Sharp.NativeBinaries" version="[2.0.312]" include="All" />
-      </group>
-      <group targetFramework=".NETStandard2.1">
         <dependency id="LibGit2Sharp.NativeBinaries" version="[2.0.312]" include="All" />
       </group>
     </dependencies>
