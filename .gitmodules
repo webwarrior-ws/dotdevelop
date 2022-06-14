@@ -1,36 +1,36 @@
 [submodule "main/external/debugger-libs"]
 	path = main/external/debugger-libs
-	url = git://github.com/dotdevelop/debugger-libs.git
+	url = https://github.com/dotdevelop/debugger-libs.git
 	branch = master
 [submodule "main/external/guiunit"]
 	path = main/external/guiunit
-	url = git://github.com/dotdevelop/guiunit.git
+	url = https://github.com/dotdevelop/guiunit.git
 [submodule "main/external/macdoc"]
 	path = main/external/macdoc
-	url = git://github.com/dotdevelop/macdoc
+	url = https://github.com/dotdevelop/macdoc
 [submodule "main/external/mdtestharness"]
 	path = main/external/mdtestharness
-	url = git://github.com/dotdevelop/mdtestharness.git
+	url = https://github.com/dotdevelop/mdtestharness.git
 [submodule "main/external/mono-addins"]
 	path = main/external/mono-addins
-	url = git://github.com/dotdevelop/mono-addins.git
+	url = https://github.com/dotdevelop/mono-addins.git
 	branch = dotdevelop_gtksharp
 [submodule "main/external/mono-tools"]
 	path = main/external/mono-tools
-	url = git://github.com/dotdevelop/mono-tools.git
+	url = https://github.com/dotdevelop/mono-tools.git
 [submodule "main/external/nrefactory"]
 	path = main/external/nrefactory
-	url = git://github.com/dotdevelop/NRefactory.git
+	url = https://github.com/dotdevelop/NRefactory.git
 [submodule "main/external/nuget-binary"]
 	path = main/external/nuget-binary
-	url = git://github.com/dotdevelop/nuget-binary.git
+	url = https://github.com/dotdevelop/nuget-binary.git
 	branch = master
 [submodule "main/external/sharpsvn-binary"]
 	path = main/external/sharpsvn-binary
-	url = git://github.com/dotdevelop/sharpsvn-binary.git
+	url = https://github.com/dotdevelop/sharpsvn-binary.git
 [submodule "main/external/xwt"]
 	path = main/external/xwt
-	url = git://github.com/dotdevelop/xwt
+	url = https://github.com/dotdevelop/xwt
 	branch = dotdevelop
 [submodule "main/external/Xamarin.PropertyEditing"]
 	path = main/external/Xamarin.PropertyEditing
@@ -42,9 +42,9 @@
     branch = dotdevelop_oe_8.1.5
 [submodule "main/external/Monodevelop.Netcoredbg"]
 	path = main/external/Monodevelop.Netcoredbg
-	url = git://github.com/dotdevelop/monodevelop.netcoredbg.git
+	url = https://github.com/dotdevelop/monodevelop.netcoredbg.git
 	branch = dotdevelop
 [submodule "main/external/Samsung.Netcoredbg"]
 	path = main/external/Samsung.Netcoredbg
-	url = git://github.com/dotdevelop/netcoredbg.git
+	url = https://github.com/dotdevelop/netcoredbg.git
 	branch = dotdevelop
