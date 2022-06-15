@@ -31,6 +31,7 @@ using System.Reflection;
 using Mono.Addins;
 using MonoDevelop.Core.AddIns;
 using Mono.PkgConfig;
+
 namespace MonoDevelop.Core.Assemblies
 {
 	/// <summary>
@@ -70,12 +71,16 @@ namespace MonoDevelop.Core.Assemblies
 			this.identifier = identifier;
 			this.version = version;
 			this.profile = profile;
+			this.shortName = ShortName;
+
 		}
 		
 		/// <summary>
 		/// The root identifier of the framework, e.g. ".NETFramework" or "Silverlight"
 		/// </summary>
-		public string Identifier { get { return identifier; } }
+		public string Identifier {
+			 get { return identifier; } 
+		}
 		
 		/// <summary>
 		/// The version of the framework.
@@ -88,7 +93,7 @@ namespace MonoDevelop.Core.Assemblies
 		public string Profile { get { return profile; } }
 
 		/// <summary>
-		/// Short name (e.g. net471, netcoreapp2.0)
+		/// Short name (e.g. net471, netcoreapp3.1, net5.0, etc)
 		/// </summary>
 		public string ShortName {
 			get {
@@ -237,12 +242,13 @@ namespace MonoDevelop.Core.Assemblies
 		static string GetShortFrameworkName (TargetFrameworkMoniker framework)
 		{
 			if (IsNetFramework (framework))
-				return GetShortNetFrameworkName (framework);
+				return GetShortNetFrameworkName (framework);	// .NETFramework short names
 
-			string identifier = GetShortFrameworkIdentifier (framework);
+			string identifier = GetShortFrameworkIdentifier (framework);	// .NETCoreApp and .net short names
 			return identifier + framework.Version;
 		}
 
+		// .NETCoreApp and .net short ('friendly') names
 		static string GetShortFrameworkIdentifier (TargetFrameworkMoniker framework)
 		{
 			if (string.IsNullOrEmpty (framework.Identifier))
@@ -253,12 +259,27 @@ namespace MonoDevelop.Core.Assemblies
 			if (shortFrameworkIdentifier [0] == '.')
 				shortFrameworkIdentifier = shortFrameworkIdentifier.Substring (1);
 
-			return shortFrameworkIdentifier.ToLower ();
+			if (shortFrameworkIdentifier == "NETCoreApp") {
+				// .net5.0 and .net6.0 plus use net5.0 etc rather than netcoreapp5.0 etc
+				// see https://docs.microsoft.com/en-us/dotnet/standard/frameworks#supported-target-frameworks
+				// also allow for eventual net10.0+
+				int i = framework.Version.IndexOf ('.');
+				int majorVersion = int.Parse (framework.Version.Substring (0,i));
+				if (majorVersion >= 5) {
+					return "net";
+				} else {
+					return shortFrameworkIdentifier.ToLower (); // eg netcoreapp
+				}
+			} else {
+				return shortFrameworkIdentifier.ToLower(); // catch anything else
+			}
+
 		}
 
+		// Handle .NETFramework (but NOT .NETCoreApp and .net5.0+) names
 		static string GetShortNetFrameworkName (TargetFrameworkMoniker framework)
 		{
-			return "net" + framework.Version.Replace (".", string.Empty);
+			return "net" + framework.Version.Replace (".", string.Empty);	// eg net472 for .NETFramework 4.7.2
 		}
 
 		static bool IsNetFramework (TargetFrameworkMoniker framework)
@@ -342,6 +363,10 @@ namespace MonoDevelop.Core.Assemblies
 
 		public static TargetFrameworkMoniker NET_4_7_2 {
 			get { return new TargetFrameworkMoniker ("4.7.2"); }
+		}
+
+		public static TargetFrameworkMoniker NET_4_8 {
+			get { return new TargetFrameworkMoniker ("4.8"); }
 		}
 
 		public static TargetFrameworkMoniker PORTABLE_4_0 {

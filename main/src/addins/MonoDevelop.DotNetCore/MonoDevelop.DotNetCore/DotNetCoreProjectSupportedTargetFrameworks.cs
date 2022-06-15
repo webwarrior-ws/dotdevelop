@@ -64,7 +64,7 @@ namespace MonoDevelop.DotNetCore
 			"2.1", "2.0", "1.6", "1.5", "1.4", "1.3", "1.2", "1.1", "1.0"
 		};
 		static string [] supportedNetCoreAppVersions = {
-			"3.1", "3.0", "2.2", "2.1", "2.0", "1.1", "1.0"
+			"6.0", "5.0", "3.1", "3.0", "2.2", "2.1", "2.0", "1.1", "1.0"
 		};
 
 		public IEnumerable<TargetFramework> GetKnownFrameworks ()
@@ -133,7 +133,9 @@ namespace MonoDevelop.DotNetCore
 
 		public static IEnumerable<TargetFramework> GetNetCoreAppTargetFrameworksWithSdkSupport ()
 		{
-			foreach (var runtimeVersion in GetMajorRuntimeVersions ()) {
+			// explicitly evaluate runtimes list for help during debugging
+			var runtimes = GetMajorRuntimeVersions ();
+			foreach (var runtimeVersion in runtimes) {
 				// In DotNetCore version 2.1 and above the Runtime always ships in an Sdk with the same Major.Minor version. For older versions, this 
 				// rule does not apply, but as these versions have been deprecated we will not worry about explicit filtering support here as this
 				// may cause regressions.
@@ -155,8 +157,10 @@ namespace MonoDevelop.DotNetCore
 
 		static TargetFramework CreateTargetFramework (string identifier, string version)
 		{
+			// evaluate moniker explicitly to help with debugging
 			var moniker = new TargetFrameworkMoniker (identifier, version);
-			return Runtime.SystemAssemblyService.GetTargetFramework (moniker);
+			var targetFramework = Runtime.SystemAssemblyService.GetTargetFramework (moniker);
+			return targetFramework;
 		}
 
 		IEnumerable<TargetFramework> GetNetFrameworkTargetFrameworks ()
