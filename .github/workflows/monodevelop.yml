@@ -57,7 +57,7 @@ jobs:
         msbuild -version
         dotnet --info
     # Checkout, configure and build
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
         submodules: true
     - name: Checkout configure and build
