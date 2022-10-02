@@ -13,6 +13,42 @@ on:
   workflow_dispatch:
 
 jobs:
+  ubuntu2204:
+    # already available, see https://github.com/actions/runner-images/issues/5490
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Dependencies
+      run: |
+        # Install extra ubuntu packages
+        apt-get update
+        apt-get install -y sudo
+        sudo apt-get update
+
+        sudo apt-get install -y dotnet6
+
+        # Install extra packages required for dotdevelop build
+        sudo apt-get install -y sed git build-essential intltool nuget fsharp gtk-sharp2
+        # are we sure we need this one now?: sudo apt-get install -y software-properties-common
+
+        sudo apt-get update
+    - name: Verify OS and tools versions
+      run: |
+        uname -a
+        git --version
+        make --version
+        mono -V
+        msbuild -version
+        dotnet --info
+        git config --global --add safe.directory /__w/dotdevelop/dotdevelop
+    # Checkout, configure and build
+    - uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Checkout configure and build
+      run: |
+        ./configure --profile=gnome
+        make
+
   ubuntu2004:  
     runs-on: ubuntu-latest
     container:
@@ -65,3 +101,4 @@ jobs:
       run: |
         ./configure --profile=gnome
         make
+
