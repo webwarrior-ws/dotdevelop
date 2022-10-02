@@ -20,8 +20,6 @@ jobs:
     - name: Dependencies
       run: |
         # Install extra ubuntu packages
-        apt-get update
-        apt-get install -y sudo
         sudo apt-get update
 
         sudo apt-get install -y dotnet6
