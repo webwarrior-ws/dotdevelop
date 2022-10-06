@@ -30,7 +30,7 @@ jobs:
         sudo apt-get install -y dotnet6
 
         # Install extra packages required for dotdevelop build
-        sudo apt-get install -y sed git build-essential intltool nuget fsharp gtk-sharp2
+        sudo DEBIAN_FRONTEND=noninteractive apt-get install -y sed git build-essential intltool nuget fsharp gtk-sharp2
         # are we sure we need this one now?: sudo apt-get install -y software-properties-common
 
         sudo apt-get update
