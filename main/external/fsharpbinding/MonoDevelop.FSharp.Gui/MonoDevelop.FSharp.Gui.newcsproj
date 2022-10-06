@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="..\..\..\MonoDevelop.props" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FD0D1033-9145-48E5-8ED8-E2365252878C}</ProjectGuid>
+    <AssemblyName>FSharpBinding.Gui</AssemblyName>
+    <RootNamespace>MonoDevelop.FSharp.Gui</RootNamespace>
+    <TargetFrameworkVersion>$(MDFrameworkVersion)</TargetFrameworkVersion>
+    <OutputPath>..\..\..\build\AddIns\FSharpBinding</OutputPath>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Mono.Posix" />
+    <PackageReference Include="pango-sharp" Version="2.12.0.0" />
+    <PackageReference Include="atk-sharp" Version="2.12.0.0" />
+    <PackageReference Include="gdk-sharp" Version="2.12.0.0" />
+    <PackageReference Include="gtk-sharp" Version="2.12.0.0" />
+    <PackageReference Include="glib-sharp" Version="2.12.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="generated.cs" />
+    <Compile Include="FSharpCompilerOptionsWidget.cs" />
+    <Compile Include="FSharpSettingsWidget.cs" />
+    <Compile Include="MonoDevelop.FSharp.Gui.FSharpCompilerOptionsWidget.cs" />
+    <Compile Include="MonoDevelop.FSharp.Gui.FSharpSettingsWidget.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

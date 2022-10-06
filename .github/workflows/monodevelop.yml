@@ -16,6 +16,8 @@ jobs:
   ubuntu2204:
     # already available, see https://github.com/actions/runner-images/issues/5490
     runs-on: ubuntu-22.04
+    container:
+      image: "ubuntu:22.04"
     steps:
     - name: Dependencies
       run: |
@@ -43,7 +45,10 @@ jobs:
       with:
         submodules: true
     - name: Checkout configure and build
+      # replace *.fsproj/*.csproj files with modified versions 
+      # command from https://unix.stackexchange.com/a/114594
       run: |
+        find . -name "*.new??proj" | while read f; do mv -f -v "$f" "$(echo "$f" | sed -e 's/\.new/\./' - )"; done
         ./configure --profile=gnome
         make
 
