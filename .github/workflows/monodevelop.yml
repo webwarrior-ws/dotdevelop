@@ -40,7 +40,7 @@ jobs:
         git --version
         make --version
         mono -V
-        msbuild -version
+        dotnet build -version
         dotnet --info
         git config --global --add safe.directory /__w/dotdevelop/dotdevelop
     # Checkout, configure and build
