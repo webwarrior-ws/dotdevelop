@@ -24,7 +24,7 @@ PROFILE_NAME=DebugWin32
 endif
 endif
 
-XBUILD=msbuild
+XBUILD=dotnet build
 XBUILD_VERBOSITY ?= normal
 XBUILD_ARGS=/verbosity:$(XBUILD_VERBOSITY) /nologo /property:CodePage=65001 /property:RestorePackages=false /property:DownloadPaket=false /property:ReportAnalyzer=true
 XBUILD_PROFILE=/property:Configuration=$(PROFILE_NAME)

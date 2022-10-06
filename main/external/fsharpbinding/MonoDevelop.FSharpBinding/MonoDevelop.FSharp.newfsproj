@@ -1,0 +1,222 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\..\MonoDevelop.props" />
+  <Import Project="$(ReferencesGtk)" />
+  <PropertyGroup>
+    <ProjectGuid>{4C10F8F9-3816-4647-BA6E-85F5DE39883A}</ProjectGuid>
+    <RootNamespace>FSharp.MonoDevelop</RootNamespace>
+    <AssemblyName>FSharpBinding</AssemblyName>
+    <UsePartialTypes>False</UsePartialTypes>
+    <RestorePackages>False</RestorePackages>
+    <TargetFramework>$(MDFrameworkVersion)</TargetFramework>
+    <SignAssembly>true</SignAssembly>
+    <OtherFlags>--publicsign</OtherFlags>
+    <AssemblyOriginatorKeyFile>..\..\..\msbuild\MonoDevelop-Public.snk</AssemblyOriginatorKeyFile>
+    <OutputPath>..\..\..\build\AddIns\FSharpBinding</OutputPath>
+    <OtherFlags>--warnon:1182</OtherFlags>
+    <StartAction>Program</StartAction>
+    <Externalconsole>true</Externalconsole>
+    <StartProgram>$(MSBuildProjectDirectory)\..\..\..\build\bin\MonoDevelop.exe</StartProgram>
+    <StartWorkingDirectory>$(MSBuildProjectDirectory)\..\..\..\build\bin</StartWorkingDirectory>
+  </PropertyGroup>
+  <Target Name="Clean">
+    <RemoveDir Directories="..\bin\" />
+  </Target>
+  <Import Project="..\.paket\paket.targets" />
+  <Import Project="templates.targets" />
+  <ItemGroup>
+    <Reference Include="Mono.Addins">
+      <Private>False</Private>
+      <HintPath>..\..\..\build\bin\Mono.Addins.dll</HintPath>
+    </Reference>
+    <Reference Include="Xwt">
+      <Private>False</Private>
+      <HintPath>..\..\..\build\bin\Xwt.dll</HintPath>
+    </Reference>
+    <Reference Include="Xwt.Gtk">
+      <Private>False</Private>
+      <HintPath>..\..\..\build\bin\Xwt.Gtk.dll</HintPath>
+    </Reference>
+    <Reference Include="monodoc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756" />
+    <Reference Include="Microsoft.CodeAnalysis">
+      <HintPath>..\..\..\build\bin\Microsoft.CodeAnalysis.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Xamarin.Mac">
+      <HintPath>..\..\Xamarin.Mac.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.Workspaces">
+      <HintPath>..\..\..\build\bin\Microsoft.CodeAnalysis.Workspaces.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.Features">
+      <HintPath>..\..\..\build\bin\Microsoft.CodeAnalysis.Features.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Composition.AttributedModel">
+      <HintPath>..\..\..\build\bin\System.Composition.AttributedModel.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Services\Extensions.fs" />
+    <Compile Include="Services\CompilerLocationUtils.fs" />
+    <Compile Include="Services\OrderAssemblyReferences.fs" />
+    <Compile Include="Services\Parameters.fs" />
+    <Compile Include="Services\TooltipHelpers.fs" />
+    <Compile Include="Services\FileService.fs" />
+    <Compile Include="Services\CompilerArguments.fs" />
+    <Compile Include="Services\LanguageService.fs" />
+    <Compile Include="Services\MDLanguageService.fs" />
+    <Compile Include="Services\CompilerService.fs" />
+    <Compile Include="Services\InteractiveSession.fs" />
+    <Compile Include="Services\RoslynHelpers.fs" />
+    <Compile Include="FSharpParsedDocument.fs" />
+    <Compile Include="FSharpTokens.fs" />
+    <Compile Include="FSharpSymbolHelper.fs" />
+    <Compile Include="ProjectSearchCategory.fs" />
+    <Compile Include="FSharpProject.fs" />
+    <Compile Include="FSharpInteractivePad.fs" />
+    <Compile Include="FSharpOptionsPanels.fs" />
+    <Compile Include="PortableFSharpProjectFlavor.fs" />
+    <Compile Include="FSharpFoldingParser.fs" />
+    <Compile Include="FSharpParser.fs" />
+    <Compile Include="FSharpOutlineTextEditorExtension.fs" />
+    <Compile Include="FSharpIndentationTracker.fs" />
+    <Compile Include="TypeSignatureHelp.fs" />
+    <Compile Include="FSharpTextEditorCompletion.fs" />
+    <Compile Include="FSharpPathExtension.fs" />
+    <Compile Include="FSharpUnitTestTextEditorExtension.fs" />
+    <Compile Include="FSharpProjectFileNodeExtension.fs" />
+    <Compile Include="FSharpTooltipProvider.fs" />
+    <Compile Include="FSharpResolverProvider.fs" />
+    <Compile Include="VS\ServiceAssemblyContent.fs" />
+    <Compile Include="VS\Pervasive.fs" />
+    <Compile Include="VS\AssemblyContentProvider.fs" />
+    <Compile Include="VS\CommonRoslynHelpers.fs" />
+    <Compile Include="CodeFix\AddOpenCodeFixProvider.fs" />
+    <Compile Include="RefactoringOperationsHandler.fs" />
+    <Compile Include="FSharpFormattingPolicy.fs" />
+    <Compile Include="FSharpFormatter.fs" />
+    <Compile Include="FSharpFormattingPanelWidget.fs" />
+    <Compile Include="FSharpFormattingPolicyPanel.fs" />
+    <Compile Include="FSharpSyntaxMode.fs" />
+    <Compile Include="FSharpHighlightUsagesExtension.fs" />
+    <Compile Include="FakeSearchCategory.fs" />
+    <Compile Include="FSharpNavigationTextEditorExtension.fs" />
+    <Compile Include="FSharpBraceMatcher.fs" />
+    <Compile Include="FSharpDebuggerExpressionResolver.fs" />
+    <Compile Include="FSharpSelection.fs" />
+    <AdditionalEmbeddedResource Include="FSharpSyntaxMode.xml" />
+    <AdditionalEmbeddedResource Include="FSharpFormattingPolicy.xml" />
+    <AdditionalEmbeddedResource Include="FSharpStylePolicy.xml" />
+    <AdditionalEmbeddedResource Include="FSharpBinding.addin.xml" />
+    <None Include="paket.references" />
+    <Compile Include="Properties\AddinInfo.fs" />
+    <Compile Include="HighlightUnusedCode.fs" />
+    <Compile Include="ScriptDebugging.fs" />
+    <Compile Include="FSharpProjectCompilerOptions.fs" />
+    <Compile Include="FindReferenceUsages.fs" />
+    <IncludeCopyLocal Include="System.Reactive.dll" />
+    <IncludeCopyLocal Include="System.Reactive.Linq.dll" />
+    <IncludeCopyLocal Include="Newtonsoft.Json.dll" />
+    <IncludeCopyLocal Include="ExtCore.dll" />
+    <IncludeCopyLocal Include="Fantomas.dll" />
+    <IncludeCopyLocal Include="FSharp.Compiler.CodeDom.dll" />
+    <IncludeCopyLocal Include="FSharp.Compiler.Service.dll" />
+    <IncludeCopyLocal Include="FSharp.Core.dll" />
+    <IncludeCopyLocal Include="MonoDevelop.FSharp.Shared.dll" />
+    <ProjectReference Include="..\..\..\src\addins\MonoDevelop.Refactoring\MonoDevelop.Refactoring.csproj">
+      <Project>{100568FC-F4E8-439B-94AD-41D11724E45B}</Project>
+      <Name>MonoDevelop.Refactoring</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\src\core\MonoDevelop.Ide\MonoDevelop.Ide.csproj">
+      <Project>{27096E7F-C91C-4AC6-B289-6897A701DF21}</Project>
+      <Name>MonoDevelop.Ide</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\src\core\MonoDevelop.Core\MonoDevelop.Core.csproj">
+      <Project>{7525BB88-6142-4A26-93B9-A30C6983390A}</Project>
+      <Name>MonoDevelop.Core</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\src\addins\MonoDevelop.Debugger\MonoDevelop.Debugger.csproj">
+      <Project>{2357AABD-08C7-4808-A495-8FF2D3CDFDB0}</Project>
+      <Name>MonoDevelop.Debugger</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\MonoDevelop.FSharp.Shared\MonoDevelop.FSharp.Shared.fsproj">
+      <Project>{AF5FEAD5-B50E-4F07-A274-32F23D5C504D}</Project>
+      <Name>MonoDevelop.FSharp.Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MonoDevelop.FSharp.Gui\MonoDevelop.FSharp.Gui.csproj">
+      <Project>{FD0D1033-9145-48E5-8ED8-E2365252878C}</Project>
+      <Name>MonoDevelop.FSharp.Gui</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\src\addins\MonoDevelop.DesignerSupport\MonoDevelop.DesignerSupport.csproj">
+      <Project>{364E4FEE-0F78-4AEC-A170-BB6AC93E8F9A}</Project>
+      <Name>MonoDevelop.DesignerSupport.Mac</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\src\addins\MonoDevelop.SourceEditor2\MonoDevelop.SourceEditor.csproj">
+      <Project>{F8F92AA4-A376-4679-A9D4-60E7B7FBF477}</Project>
+      <Name>MonoDevelop.SourceEditor</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\src\addins\MonoDevelop.UnitTesting\MonoDevelop.UnitTesting.csproj">
+      <Project>{A7A4246D-CEC4-42DF-A3C1-C31B9F51C4EC}</Project>
+      <Name>MonoDevelop.UnitTesting</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <Policies>
+          <TextStylePolicy TabWidth="4" IndentWidth="4" RemoveTrailingWhitespace="True" NoTabsAfterNonTabs="False" EolMarker="Native" FileWidth="80" TabsToSpaces="True" scope="text/x-fsharp" />
+          <FSharpFormattingPolicy scope="text/x-fsharp">
+            <DefaultFormat IndentOnTryWith="False" ReorderOpenDeclaration="False" SpaceAfterComma="True" SpaceAfterSemicolon="True" SpaceAroundDelimiter="True" SpaceBeforeArgument="True" SpaceBeforeColon="True" __added="0" />
+          </FSharpFormattingPolicy>
+        </Policies>
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
+  
+  <ItemGroup>
+	  <PackageReference Include="ExtCore" Version="0.8.46" />
+	  <PackageReference Include="Fantomas" Version="3.0.0-beta-002" />
+	  <PackageReference Include="FSharp.Compiler.CodeDom" Version="0.9.2" />
+	  <PackageReference Include="FSharp.Compiler.Service" Version="31.0" />
+	  <PackageReference Include="FSharp.Core" Version="4.7" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="System.Windows">
+    <PackageReference Include="System.Windows.Forms">
+    <PackageReference Include="WindowsBase">
+    <PackageReference Include="System.Reactive">
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Mono.Cecil" Version="0.10.0-beta6" />
+    <PackageReference Include="Mono.Cecil.Mdb" Version="0.10.0-beta6" />
+    <PackageReference Include="Mono.Cecil.Pdb" Version="0.10.0-beta6" />
+    <PackageReference Include="Mono.Cecil.Rocks" Version="0.10.0-beta6" />
+
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="System.Collections.Immutable" Version="1.5" />
+
+
+    <PackageReference Include="System.Reactive.Linq" Version="4.1.5" />
+    <PackageReference Include="System.Reflection.Metadata" Version="1.6" />
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="4.5.2" />
+    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.2" />
+    <PackageReference Include="System.ValueTuple" Version="4.5" />
+	
+	<PackageReference Include="System.Security.Permissions" Version="4.4.0" />
+  </ItemGroup>
+  
+  <Import Project="..\packages\StrongNamer\build\StrongNamer.targets" Condition="Exists('..\packages\StrongNamer\build\StrongNamer.targets')" Label="Paket" />
+</Project>

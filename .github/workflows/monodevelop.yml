@@ -16,16 +16,21 @@ jobs:
   ubuntu2204:
     # already available, see https://github.com/actions/runner-images/issues/5490
     runs-on: ubuntu-22.04
+    container:
+      image: "ubuntu:22.04"
     steps:
     - name: Dependencies
       run: |
         # Install extra ubuntu packages
+        apt-get update
+        apt-get install -y sudo
+        
         sudo apt-get update
 
         sudo apt-get install -y dotnet6
 
         # Install extra packages required for dotdevelop build
-        sudo apt-get install -y sed git build-essential intltool nuget fsharp gtk-sharp2
+        sudo DEBIAN_FRONTEND=noninteractive apt-get install -y sed git build-essential intltool nuget fsharp gtk-sharp2
         # are we sure we need this one now?: sudo apt-get install -y software-properties-common
 
         sudo apt-get update
@@ -34,8 +39,7 @@ jobs:
         uname -a
         git --version
         make --version
-        mono -V
-        msbuild -version
+        dotnet build -version
         dotnet --info
         git config --global --add safe.directory /__w/dotdevelop/dotdevelop
     # Checkout, configure and build
@@ -43,9 +47,12 @@ jobs:
       with:
         submodules: true
     - name: Checkout configure and build
+      # replace *.fsproj/*.csproj files with modified versions 
+      # command from https://unix.stackexchange.com/a/114594
       run: |
+        find . -name "*.new??proj" | while read f; do mv -f -v "$f" "$(echo "$f" | sed -e 's/\.new/\./' - )"; done
         ./configure --profile=gnome
-        make
+        make V=1 --trace --debug=j
 
   ubuntu2004:  
     runs-on: ubuntu-latest
