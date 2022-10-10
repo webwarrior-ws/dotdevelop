@@ -27,5 +27,4 @@
     <Compile Include="MonoDevelop.FSharp.Gui.FSharpCompilerOptionsWidget.cs" />
     <Compile Include="MonoDevelop.FSharp.Gui.FSharpSettingsWidget.cs" />
   </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
