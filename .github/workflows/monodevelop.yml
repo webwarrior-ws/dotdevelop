@@ -52,7 +52,7 @@ jobs:
       run: |
         find . -name "*.new??proj" | while read f; do mv -f -v "$f" "$(echo "$f" | sed -e 's/\.new/\./' - )"; done
         ./configure --profile=gnome
-        make V=1
+        make V=1 --trace --debug=j
 
   ubuntu2004:  
     runs-on: ubuntu-latest
