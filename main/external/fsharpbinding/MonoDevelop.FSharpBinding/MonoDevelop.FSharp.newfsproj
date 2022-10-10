@@ -2,8 +2,6 @@
   <Import Project="..\..\..\MonoDevelop.props" />
   <Import Project="$(ReferencesGtk)" />
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{4C10F8F9-3816-4647-BA6E-85F5DE39883A}</ProjectGuid>
     <RootNamespace>FSharp.MonoDevelop</RootNamespace>
     <AssemblyName>FSharpBinding</AssemblyName>
@@ -217,7 +215,7 @@
     <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.2" />
     <PackageReference Include="System.ValueTuple" Version="4.5" />
 	
-	<PackageReference Include="System.Security.Permissions" Version="4.0.3.0" />
+	<PackageReference Include="System.Security.Permissions" Version="4.4.0" />
   </ItemGroup>
   
   <Import Project="..\packages\StrongNamer\build\StrongNamer.targets" Condition="Exists('..\packages\StrongNamer\build\StrongNamer.targets')" Label="Paket" />
