@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="..\..\..\MonoDevelop.props" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -7,9 +6,7 @@
     <ProjectGuid>{20D6EC2C-B62E-49D1-B685-90D8967A5B5D}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>MonoDevelop.FSharpi.Service</RootNamespace>
-    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
-    <TargetFrameworkVersion>$(MDFrameworkVersion)</TargetFrameworkVersion>
-    <TargetFSharpCoreVersion>4.4.3.0</TargetFSharpCoreVersion>
+	<TargetFramework>$(MDFrameworkVersion)</TargetFramework>
     <OutputPath>..\..\..\build\AddIns\FSharpBinding</OutputPath>
     <GenerateTailCalls>true</GenerateTailCalls>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -40,7 +37,6 @@
   </ItemGroup>
   <Import Project="..\.paket\paket.targets" />
   <Import Project="$(CustomBeforeMicrosoftCommonTargets)" />
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\FSharp\Microsoft.FSharp.Targets" />
   <ItemGroup>
     <PackageReference Include="ExtCore" Version="0.8.46" />
     <PackageReference Include="FSharp.Compiler.Service" Version="31.0" />
