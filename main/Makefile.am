@@ -26,7 +26,7 @@ clean-local: sln_clean
 	cd build && $(MAKE) clean
 
 NUGET_FOUND = $$(echo $$(which nuget))
-NUGET_RESTORE = dotnet restore
+NUGET_RESTORE = dotnet restore --verbosity diagnostic
 
 #FIXME: move the restore logic into MSBuild (Before.sln.targets),
 #       see: https://github.com/kzu/NuGet.Restore
