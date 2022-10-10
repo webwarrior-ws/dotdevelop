@@ -39,7 +39,6 @@ jobs:
         uname -a
         git --version
         make --version
-        mono -V
         dotnet build -version
         dotnet --info
         git config --global --add safe.directory /__w/dotdevelop/dotdevelop
